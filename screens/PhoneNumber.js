@@ -1,4 +1,5 @@
-import React, {useState, useRef} from 'react';
+import React, { useState ,useRef} from 'react';
+import PhoneInput from '../lib/PhoneInput';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,31 +7,24 @@ import {
   StatusBar,
   TouchableOpacity,
   Text,
+  Button,
+  Alert,
 } from 'react-native';
-import PhoneInput from './lib/PhoneInput';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const App = () => {
+
+export default function PhoneNumber(props) {
   const [value, setValue] = useState('');
   const [countryCode, setCountryCode] = useState('');
   const [formattedValue, setFormattedValue] = useState('');
   const [valid, setValid] = useState(false);
-  const [disabled, setDisabled] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
-  const phoneInput = useRef<PhoneInput>(null);
+  const phoneInput = useRef(null);
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <SafeAreaView style={styles.wrapper}>
-          {showMessage && (
-            <View style={styles.message}>
-              <Text>Country Code : {countryCode}</Text>
-              <Text>Value : {value}</Text>
-              <Text>Formatted Value : {formattedValue}</Text>
-              <Text>Valid : {valid ? 'true' : 'false'}</Text>
-            </View>
-          )}
           <PhoneInput
             ref={phoneInput}
             defaultValue={value}
@@ -52,21 +46,27 @@ const App = () => {
             style={styles.button}
             onPress={() => {
               const checkValid = phoneInput.current?.isValidNumber(value);
-              setShowMessage(true);
-              setValid(checkValid ? checkValid : false);
-              setCountryCode(phoneInput.current?.getCountryCode() || '');
-              let getNumberAfterPossiblyEliminatingZero = phoneInput.current?.getNumberAfterPossiblyEliminatingZero();
-              console.log(getNumberAfterPossiblyEliminatingZero);
+              checkValid ?  props.onSubmit(formattedValue) : Alert.alert(
+                'Hatalı Veya Eksik Giriş Yaptınız',
+                'Lütfen Numarayı Doğru Formatta Giriniz',
+                [
+                  {
+                    text: 'Kapat',
+                  },
+                ],);
+             
             }}>
             <Text style={styles.buttonText}>Gönder</Text>
           </TouchableOpacity>
           
         </SafeAreaView>
+        
+
       </View>
+
     </>
   );
-};
-
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -111,5 +111,3 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
 });
-
-export default App;

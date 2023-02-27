@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "24616915879",
+    "project_id": "albarakachat",
+    "storage_bucket": "albarakachat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24616915879:android:9590fa0e50cfe334da1c82",
+        "android_client_info": {
+          "package_name": "com.rnphonevalidation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24616915879-l0sghadfhqq5dh0aja61r1hnpads3upi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnphonevalidation",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "24616915879-sm4ssf2bgoar34bhuka9t672nbh9a0dl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR8VYU5PMgMqyVZPkHcUrITBnS-mEYWhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24616915879-sm4ssf2bgoar34bhuka9t672nbh9a0dl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
