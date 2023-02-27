@@ -9,6 +9,7 @@ import {
   Text,
   Button,
   Alert,
+  Dimensions
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -24,6 +25,8 @@ export default function PhoneNumber(props) {
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
+      <View style={styles.bigCircle}></View>
+      <View style={styles.smallCircle}></View>
         <SafeAreaView style={styles.wrapper}>
           <PhoneInput
             ref={phoneInput}
@@ -109,5 +112,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'flex-start',
+  },
+  bigCircle: {
+    width: Dimensions.get('window').height * 0.47,
+    height: Dimensions.get('window').height * 0.47,
+    backgroundColor: '#e02a48',
+    borderRadius: 1000,
+    position: 'absolute',
+    right: Dimensions.get('window').width * 0.25,
+    top: -50,
+  },
+  smallCircle: {
+    width: Dimensions.get('window').height * 0.39,
+    height: Dimensions.get('window').height * 0.39,
+    backgroundColor: '#f57c00',
+    borderRadius: 1000,
+    position: 'absolute',
+    bottom: Dimensions.get('window').width * -0.2,
+    right: Dimensions.get('window').width * -0.3,
   },
 });
